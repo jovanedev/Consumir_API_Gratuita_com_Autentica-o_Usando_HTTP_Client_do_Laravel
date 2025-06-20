@@ -1,0 +1,357 @@
+name: 'Gestão de Formas de Pagamento'
+description: |-
+
+  Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/formas-pagamento/all
+    metadata:
+      groupName: 'Gestão de Formas de Pagamento'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todas as formas de pagamento da loja autenticada.'
+      description: 'Retorna uma lista de formas de pagamento associadas à loja do usuário autenticado, incluindo informações do meio de pagamento e da loja.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "meio_pagamentos_id": 1,
+                "dados_conta": "Chave PIX: 123456789",
+                "meio_pagamento": {
+                  "id": 1,
+                  "nome": "PIX"
+                },
+                "loja": {
+                  "id": 1,
+                  "nome": "Loja Exemplo"
+                }
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/formas-pagamento/view/{id}'
+    metadata:
+      groupName: 'Gestão de Formas de Pagamento'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe uma forma de pagamento específica.'
+      description: 'Retorna os detalhes de uma forma de pagamento com base no ID fornecido, restrito à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the view.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "meio_pagamentos_id": 1,
+              "dados_conta": "Chave PIX: 123456789",
+              "meio_pagamento": {
+                "id": 1,
+                "nome": "PIX"
+              },
+              "loja": {
+                "id": 1,
+                "nome": "Loja Exemplo"
+              }
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/formas-pagamento/create
+    metadata:
+      groupName: 'Gestão de Formas de Pagamento'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria uma nova forma de pagamento.'
+      description: 'Cria uma nova forma de pagamento associada à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      loja_id:
+        name: loja_id
+        description: 'O ID da loja (deve existir na tabela lojas). Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      meio_pagamentos_id:
+        name: meio_pagamentos_id
+        description: 'O ID do meio de pagamento (deve existir na tabela meio_pagamentos). Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      dados_conta:
+        name: dados_conta
+        description: 'Dados da conta para o meio de pagamento (e.g., chave PIX, dados bancários). Exemplo: Chave PIX: 123456789'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      loja_id: 17
+      meio_pagamentos_id: 17
+      dados_conta: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "meio_pagamentos_id": 1,
+              "dados_conta": "Chave PIX: 123456789"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/formas-pagamento/update/{id}'
+    metadata:
+      groupName: 'Gestão de Formas de Pagamento'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza uma forma de pagamento existente.'
+      description: 'Atualiza os dados de uma forma de pagamento específica, restrita à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      loja_id:
+        name: loja_id
+        description: 'O ID da loja (deve existir na tabela lojas). Exemplo: 1'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      meio_pagamentos_id:
+        name: meio_pagamentos_id
+        description: 'O ID do meio de pagamento (deve existir na tabela meio_pagamentos). Exemplo: 2'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      dados_conta:
+        name: dados_conta
+        description: 'Dados da conta para o meio de pagamento (e.g., chave PIX, dados bancários). Exemplo: Conta Bancária: 1234-5'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      loja_id: 17
+      meio_pagamentos_id: 17
+      dados_conta: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "meio_pagamentos_id": 2,
+              "dados_conta": "Conta Bancária: 1234-5"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/formas-pagamento/delete/{id}'
+    metadata:
+      groupName: 'Gestão de Formas de Pagamento'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de formas de pagamento associadas a lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove uma forma de pagamento.'
+      description: 'Deleta uma forma de pagamento específica, restrita à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the delete.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Forma de pagamento removida com sucesso."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

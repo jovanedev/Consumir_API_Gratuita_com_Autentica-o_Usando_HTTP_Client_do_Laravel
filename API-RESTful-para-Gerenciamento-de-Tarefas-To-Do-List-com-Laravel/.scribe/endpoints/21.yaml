@@ -1,0 +1,521 @@
+name: 'Gestão de Template - Cabeçalhos'
+description: |-
+
+  Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/cabecalho/all'
+    metadata:
+      groupName: 'Gestão de Template - Cabeçalhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todos os cabeçalhos de um template.'
+      description: 'Retorna uma lista de cabeçalhos associados ao template especificado e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "template_id": 1,
+                "cor_fundo": "#FFFFFF",
+                "cor_texto_icones": "#000000",
+                "tamanho_logo": "100px",
+                "mostrar_idiomas": true,
+                "cabecalho_em_celulares": {
+                  "layout": "compacto"
+                },
+                "cabecalho_em_computadores": {
+                  "layout": "expandido"
+                },
+                "barra_anuncio": {
+                  "texto": "Bem-vindo à nossa loja!"
+                }
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/cabecalho/view/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Cabeçalhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe um cabeçalho específico.'
+      description: 'Retorna os detalhes de um cabeçalho específico com base no ID do template e do cabeçalho.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the view.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "cor_fundo": "#FFFFFF",
+            "cor_texto_icones": "#000000",
+            "tamanho_logo": "100px",
+            "mostrar_idiomas": true,
+            "cabecalho_em_celulares": {
+              "layout": "compacto"
+            },
+            "cabecalho_em_computadores": {
+              "layout": "expandido"
+            },
+            "barra_anuncio": {
+              "texto": "Bem-vindo à nossa loja!"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/lojas/templates/{template_id}/cabecalho/create'
+    metadata:
+      groupName: 'Gestão de Template - Cabeçalhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria um novo cabeçalho.'
+      description: 'Cria um novo cabeçalho associado ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      cor_fundo:
+        name: cor_fundo
+        description: 'A cor de fundo do cabeçalho (formato hexadecimal, máx. 7 caracteres). Exemplo: "#FFFFFF"'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cor_texto_icones:
+        name: cor_texto_icones
+        description: 'A cor do texto e ícones (formato hexadecimal, máx. 7 caracteres). Exemplo: "#000000"'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tamanho_logo:
+        name: tamanho_logo
+        description: 'O tamanho do logo (máx. 255 caracteres). Exemplo: "100px"'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mostrar_idiomas:
+        name: mostrar_idiomas
+        description: 'Define se os idiomas devem ser exibidos. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cabecalho_em_celulares:
+        name: cabecalho_em_celulares
+        description: 'nullable Configurações do cabeçalho em dispositivos móveis. Exemplo: {"layout": "compacto"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cabecalho_em_computadores:
+        name: cabecalho_em_computadores
+        description: 'nullable Configurações do cabeçalho em computadores. Exemplo: {"layout": "expandido"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      barra_anuncio:
+        name: barra_anuncio
+        description: 'nullable Configurações da barra de anúncio. Exemplo: {"texto": "Bem-vindo à nossa loja!"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      cor_fundo: consequatur
+      cor_texto_icones: consequatur
+      tamanho_logo: consequatur
+      mostrar_idiomas: false
+      cabecalho_em_celulares: []
+      cabecalho_em_computadores: []
+      barra_anuncio: []
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "cor_fundo": "#FFFFFF",
+            "cor_texto_icones": "#000000",
+            "tamanho_logo": "100px",
+            "mostrar_idiomas": true,
+            "cabecalho_em_celulares": {
+              "layout": "compacto"
+            },
+            "cabecalho_em_computadores": {
+              "layout": "expandido"
+            },
+            "barra_anuncio": {
+              "texto": "Bem-vindo à nossa loja!"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/lojas/templates/{template_id}/cabecalho/update/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Cabeçalhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza um cabeçalho existente.'
+      description: 'Atualiza os dados de um cabeçalho específico associado ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      cor_fundo:
+        name: cor_fundo
+        description: 'A cor de fundo do cabeçalho (formato hexadecimal, máx. 7 caracteres). Exemplo: "#FFFFFF"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cor_texto_icones:
+        name: cor_texto_icones
+        description: 'A cor do texto e ícones (formato hexadecimal, máx. 7 caracteres). Exemplo: "#000000"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tamanho_logo:
+        name: tamanho_logo
+        description: 'O tamanho do logo (máx. 255 caracteres). Exemplo: "100px"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mostrar_idiomas:
+        name: mostrar_idiomas
+        description: 'Define se os idiomas devem ser exibidos. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cabecalho_em_celulares:
+        name: cabecalho_em_celulares
+        description: 'nullable Configurações do cabeçalho em dispositivos móveis. Exemplo: {"layout": "compacto"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cabecalho_em_computadores:
+        name: cabecalho_em_computadores
+        description: 'nullable Configurações do cabeçalho em computadores. Exemplo: {"layout": "expandido"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      barra_anuncio:
+        name: barra_anuncio
+        description: 'nullable Configurações da barra de anúncio. Exemplo: {"texto": "Bem-vindo à nossa loja!"}'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      cor_fundo: consequatur
+      cor_texto_icones: consequatur
+      tamanho_logo: consequatur
+      mostrar_idiomas: false
+      cabecalho_em_celulares: []
+      cabecalho_em_computadores: []
+      barra_anuncio: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "cor_fundo": "#FFFFFF",
+            "cor_texto_icones": "#000000",
+            "tamanho_logo": "100px",
+            "mostrar_idiomas": true,
+            "cabecalho_em_celulares": {
+              "layout": "compacto"
+            },
+            "cabecalho_em_computadores": {
+              "layout": "expandido"
+            },
+            "barra_anuncio": {
+              "texto": "Bem-vindo à nossa loja!"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/lojas/templates/{template_id}/cabecalho/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Cabeçalhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de cabeçalhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta um cabeçalho.'
+      description: 'Remove um cabeçalho específico associado ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Cabeçalho deletado com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

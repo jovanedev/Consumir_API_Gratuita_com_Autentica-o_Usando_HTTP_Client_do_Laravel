@@ -1,0 +1,372 @@
+name: 'Transações de Pagamento'
+description: |-
+
+  APIs para gerenciar transações de pagamento associadas a uma loja.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/transacao-pagamentos/all
+    metadata:
+      groupName: 'Transações de Pagamento'
+      groupDescription: |-
+
+        APIs para gerenciar transações de pagamento associadas a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar transações de pagamento'
+      description: 'Retorna uma lista de todas as transações de pagamento associadas à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          [
+            {
+              "id": 1,
+              "cliente_id": 1,
+              "metodo_pagamento": 1,
+              "pedido_id": 1,
+              "valor_total": 150.00,
+              "loja_id": 1,
+              "created_at": "2025-05-28T16:04:00.000000Z",
+              "updated_at": "2025-05-28T16:04:00.000000Z"
+            }
+          ]
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/transacao-pagamentos/view/{id}'
+    metadata:
+      groupName: 'Transações de Pagamento'
+      groupDescription: |-
+
+        APIs para gerenciar transações de pagamento associadas a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibir uma transação de pagamento'
+      description: 'Retorna os detalhes de uma transação de pagamento específica com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID da transação de pagamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "cliente_id": 1,
+            "metodo_pagamento": 1,
+            "pedido_id": 1,
+            "valor_total": 150.00,
+            "loja_id": 1,
+            "created_at": "2025-05-28T16:04:00.000000Z",
+            "updated_at": "2025-05-28T16:04:00.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/transacao-pagamentos/create
+    metadata:
+      groupName: 'Transações de Pagamento'
+      groupDescription: |-
+
+        APIs para gerenciar transações de pagamento associadas a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Criar uma nova transação de pagamento'
+      description: 'Cria uma nova transação de pagamento associada à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      cliente_id:
+        name: cliente_id
+        description: 'O ID do cliente associado à transação. Exemplo: 1'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      metodo_pagamento:
+        name: metodo_pagamento
+        description: 'O ID do método de pagamento. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      pedido_id:
+        name: pedido_id
+        description: 'O ID do pedido associado. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_total:
+        name: valor_total
+        description: 'O valor total da transação. Exemplo: 150.00'
+        required: true
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      cliente_id: 17
+      metodo_pagamento: 17
+      pedido_id: 17
+      valor_total: 11613.31890586
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "message": "Transação de pagamento cadastrada com sucesso!",
+            "data": {
+              "id": 1,
+              "cliente_id": 1,
+              "metodo_pagamento": 1,
+              "pedido_id": 1,
+              "valor_total": 150.00,
+              "loja_id": 1,
+              "created_at": "2025-05-28T16:04:00.000000Z",
+              "updated_at": "2025-05-28T16:04:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/transacao-pagamentos/update/{id}'
+    metadata:
+      groupName: 'Transações de Pagamento'
+      groupDescription: |-
+
+        APIs para gerenciar transações de pagamento associadas a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar uma transação de pagamento'
+      description: 'Atualiza os dados de uma transação de pagamento existente com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID da transação de pagamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      cliente_id:
+        name: cliente_id
+        description: 'O ID do cliente associado à transação. Exemplo: 1'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      metodo_pagamento:
+        name: metodo_pagamento
+        description: 'O ID do método de pagamento. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      pedido_id:
+        name: pedido_id
+        description: 'O ID do pedido associado. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_total:
+        name: valor_total
+        description: 'O valor total da transação. Exemplo: 150.00'
+        required: true
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      cliente_id: 17
+      metodo_pagamento: 17
+      pedido_id: 17
+      valor_total: 11613.31890586
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Transação de pagamento atualizada com sucesso!",
+            "data": {
+              "id": 1,
+              "cliente_id": 1,
+              "metodo_pagamento": 1,
+              "pedido_id": 1,
+              "valor_total": 150.00,
+              "loja_id": 1,
+              "created_at": "2025-05-28T16:04:00.000000Z",
+              "updated_at": "2025-05-28T16:04:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/transacao-pagamentos/delete/{id}'
+    metadata:
+      groupName: 'Transações de Pagamento'
+      groupDescription: |-
+
+        APIs para gerenciar transações de pagamento associadas a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remover uma transação de pagamento'
+      description: 'Remove uma transação de pagamento com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID da transação de pagamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Transação de pagamento removida com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

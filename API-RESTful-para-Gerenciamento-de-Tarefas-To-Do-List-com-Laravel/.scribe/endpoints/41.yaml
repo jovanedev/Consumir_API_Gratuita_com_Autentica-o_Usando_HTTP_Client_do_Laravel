@@ -1,0 +1,445 @@
+name: 'Gestão de Template - Carrinhos'
+description: |-
+
+  Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/carrinhos-gts'
+    metadata:
+      groupName: 'Gestão de Template - Carrinhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todas as configurações de carrinhos de um template.'
+      description: 'Retorna uma lista de configurações de carrinhos associadas ao template especificado e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "template_id": 1,
+                "mostrar_botao_ver_mais": true,
+                "valor_minimo_compra": 50.00,
+                "carrinho_rapido": false,
+                "sugerir_produtos_complementares": true,
+                "mostrar_calculadora_frete": true
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/carrinhos-gts/show/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Carrinhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe uma configuração de carrinho específica.'
+      description: 'Retorna os detalhes de uma configuração de carrinho específica com base no ID do template e do carrinho.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the show.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "mostrar_botao_ver_mais": true,
+            "valor_minimo_compra": 50.00,
+            "carrinho_rapido": false,
+            "sugerir_produtos_complementares": true,
+            "mostrar_calculadora_frete": true
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/lojas/templates/{template_id}/carrinhos-gts/store'
+    metadata:
+      groupName: 'Gestão de Template - Carrinhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria uma nova configuração de carrinho.'
+      description: 'Cria uma nova configuração de carrinho associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mostrar_botao_ver_mais:
+        name: mostrar_botao_ver_mais
+        description: 'Define se o botão "Ver Mais" deve ser exibido. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_minimo_compra:
+        name: valor_minimo_compra
+        description: 'O valor mínimo para compra (mín. 0). Exemplo: 50.00'
+        required: true
+        example: consequatur
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      carrinho_rapido:
+        name: carrinho_rapido
+        description: 'Define se o carrinho rápido está ativado. Exemplo: false'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      sugerir_produtos_complementares:
+        name: sugerir_produtos_complementares
+        description: 'Define se produtos complementares devem ser sugeridos. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mostrar_calculadora_frete:
+        name: mostrar_calculadora_frete
+        description: 'Define se a calculadora de frete deve ser exibida. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      mostrar_botao_ver_mais: false
+      valor_minimo_compra: consequatur
+      carrinho_rapido: false
+      sugerir_produtos_complementares: false
+      mostrar_calculadora_frete: false
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "mostrar_botao_ver_mais": true,
+            "valor_minimo_compra": 50.00,
+            "carrinho_rapido": false,
+            "sugerir_produtos_complementares": true,
+            "mostrar_calculadora_frete": true
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/lojas/templates/{template_id}/carrinhos-gts/update/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Carrinhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza uma configuração de carrinho existente.'
+      description: 'Atualiza os dados de uma configuração de carrinho específica associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mostrar_botao_ver_mais:
+        name: mostrar_botao_ver_mais
+        description: 'Define se o botão "Ver Mais" deve ser exibido. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_minimo_compra:
+        name: valor_minimo_compra
+        description: 'O valor mínimo para compra (mín. 0). Exemplo: 50.00'
+        required: false
+        example: consequatur
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      carrinho_rapido:
+        name: carrinho_rapido
+        description: 'Define se o carrinho rápido está ativado. Exemplo: false'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      sugerir_produtos_complementares:
+        name: sugerir_produtos_complementares
+        description: 'Define se produtos complementares devem ser sugeridos. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mostrar_calculadora_frete:
+        name: mostrar_calculadora_frete
+        description: 'Define se a calculadora de frete deve ser exibida. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      mostrar_botao_ver_mais: false
+      valor_minimo_compra: consequatur
+      carrinho_rapido: false
+      sugerir_produtos_complementares: false
+      mostrar_calculadora_frete: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "mostrar_botao_ver_mais": true,
+            "valor_minimo_compra": 50.00,
+            "carrinho_rapido": false,
+            "sugerir_produtos_complementares": true,
+            "mostrar_calculadora_frete": true
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/lojas/templates/{template_id}/carrinhos-gts/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Carrinhos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de carrinhos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta uma configuração de carrinho.'
+      description: 'Remove uma configuração de carrinho específica associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Carrinho deletado com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,597 @@
+name: 'Variações de Produto'
+description: |-
+
+  APIs para gerenciar variações de produtos de uma loja.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/produto-variacoes/all
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar variações de produtos'
+      description: 'Retorna todas as variações de produtos da loja autenticada ou filtra por um produto específico.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      produto_id:
+        name: produto_id
+        description: 'Opcional. ID do produto para filtrar as variações. Exemplo: 1'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      produto_id: 17
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "produto_id": 1,
+                      "tipo_variacao": "Tamanho",
+                      "valor_variacao": "M",
+                      "estoque": 50,
+                      "preco_adicional": 10.00,
+                      "created_at": "2025-05-28T16:01:00.000000Z",
+                      "updated_at": "2025-05-28T16:01:00.000000Z"
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+              "error": "Produto não encontrado ou não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: |-
+          {
+              "error": "Erro ao listar as variações."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/produto-variacoes/create
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cadastrar uma variação de produto'
+      description: 'Cria uma nova variação para um produto pertencente à loja autenticada.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      produto_id:
+        name: produto_id
+        description: 'ID do produto ao qual a variação pertence. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tipo_variacao:
+        name: tipo_variacao
+        description: 'Tipo da variação (ex.: Tamanho, Cor). Exemplo: "Tamanho"'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_variacao:
+        name: valor_variacao
+        description: 'Valor da variação (ex.: M, Azul). Exemplo: "M"'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      estoque:
+        name: estoque
+        description: 'Quantidade em estoque. Exemplo: 50'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      preco_adicional:
+        name: preco_adicional
+        description: 'Preço adicional da variação. Exemplo: 10.00'
+        required: true
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      produto_id: 17
+      tipo_variacao: consequatur
+      valor_variacao: consequatur
+      estoque: 17
+      preco_adicional: 11613.31890586
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+              "message": "Variação cadastrada com sucesso!",
+              "data": {
+                  "id": 1,
+                  "produto_id": 1,
+                  "tipo_variacao": "Tamanho",
+                  "valor_variacao": "M",
+                  "estoque": 50,
+                  "preco_adicional": 10.00,
+                  "created_at": "2025-05-28T16:01:00.000000Z",
+                  "updated_at": "2025-05-28T16:01:00.000000Z"
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+              "error": "Este produto não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "error": "Os dados fornecidos são inválidos.",
+              "errors": {
+                  "produto_id": ["O campo produto_id é obrigatório."],
+                  "tipo_variacao": ["O campo tipo_variacao é obrigatório."]
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/produto-variacoes/view/{id}'
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibir uma variação específica'
+      description: 'Retorna os detalhes de uma variação de produto específica pertencente à loja autenticada.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID da variação a ser exibida. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "produto_id": 1,
+              "tipo_variacao": "Tamanho",
+              "valor_variacao": "M",
+              "estoque": 50,
+              "preco_adicional": 10.00,
+              "created_at": "2025-05-28T16:01:00.000000Z",
+              "updated_at": "2025-05-28T16:01:00.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+              "error": "Esta variação não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+              "error": "Variação não encontrada"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/produto-variacoes/update/{id}'
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar uma variação de produto'
+      description: 'Atualiza os dados de uma variação específica pertencente à loja autenticada.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID da variação a ser atualizada. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      tipo_variacao:
+        name: tipo_variacao
+        description: 'Opcional. Tipo da variação (ex.: Tamanho, Cor). Exemplo: "Tamanho"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      valor_variacao:
+        name: valor_variacao
+        description: 'Opcional. Valor da variação (ex.: M, Azul). Exemplo: "M"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      estoque:
+        name: estoque
+        description: 'Opcional. Quantidade em estoque. Exemplo: 50'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      preco_adicional:
+        name: preco_adicional
+        description: 'Opcional. Preço adicional da variação. Exemplo: 10.00'
+        required: false
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      tipo_variacao: consequatur
+      valor_variacao: consequatur
+      estoque: 17
+      preco_adicional: 11613.31890586
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Variação atualizada com sucesso!",
+              "data": {
+                  "id": 1,
+                  "produto_id": 1,
+                  "tipo_variacao": "Tamanho",
+                  "valor_variacao": "M",
+                  "estoque": 50,
+                  "preco_adicional": 10.00,
+                  "created_at": "2025-05-28T16:01:00.000000Z",
+                  "updated_at": "2025-05-28T16:01:00.000000Z"
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+              "error": "Esta variação não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "error": "Os dados fornecidos são inválidos.",
+              "errors": {
+                  "estoque": ["O campo estoque deve ser um inteiro maior ou igual a 0."]
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/produto-variacoes/delete/{id}'
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deletar uma variação de produto'
+      description: 'Remove uma variação de produto específica pertencente à loja autenticada.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID da variação a ser deletada. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Variação de Produto removida com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+              "error": "Esta variação não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+              "error": "Variação de Produto não encontrada"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/produto-variacoes/updatestock/{id}'
+    metadata:
+      groupName: 'Variações de Produto'
+      groupDescription: |-
+
+        APIs para gerenciar variações de produtos de uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar o estoque de uma variação'
+      description: 'Atualiza o campo estoque de uma variação de produto específica pertencente à loja autenticada.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID da variação a ser atualizada. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      estoque:
+        name: estoque
+        description: 'Quantidade em estoque. Exemplo: 50'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      estoque: 17
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Estoque atualizado com sucesso.",
+              "data": {
+                  "id": 1,
+                  "produto_id": 1,
+                  "tipo_variacao": "Tamanho",
+                  "valor_variacao": "M",
+                  "estoque": 50,
+                  "preco_adicional": 10.00,
+                  "created_at": "2025-05-28T16:01:00.000000Z",
+                  "updated_at": "2025-05-28T16:01:00.000000Z"
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+              "error": "Esta variação não pertence à sua loja."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+              "error": "Variação não encontrada."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "error": "Os dados fornecidos são inválidos.",
+              "errors": {
+                  "estoque": ["O campo estoque é obrigatório."]
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

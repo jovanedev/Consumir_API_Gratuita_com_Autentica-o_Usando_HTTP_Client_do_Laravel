@@ -1,0 +1,470 @@
+name: 'Pontos de Levantamento'
+description: |-
+
+  APIs para gerenciar pontos de levantamento associados a uma loja.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/pontos-levantamento/all
+    metadata:
+      groupName: 'Pontos de Levantamento'
+      groupDescription: |-
+
+        APIs para gerenciar pontos de levantamento associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar pontos de levantamento'
+      description: 'Retorna uma lista de todos os pontos de levantamento associados à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": [
+              {
+                "id": 1,
+                "nome_local": "Ponto Central",
+                "estado": "SP",
+                "cidade": "São Paulo",
+                "bairro": "Centro",
+                "rua": "Rua Exemplo",
+                "numero": "123",
+                "complemento": "Sala 1",
+                "loja_id": 1,
+                "created_at": "2025-05-28T15:51:00.000000Z",
+                "updated_at": "2025-05-28T15:51:00.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/pontos-levantamento/view/{id}'
+    metadata:
+      groupName: 'Pontos de Levantamento'
+      groupDescription: |-
+
+        APIs para gerenciar pontos de levantamento associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibir um ponto de levantamento'
+      description: 'Retorna os detalhes de um ponto de levantamento específico com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do ponto de levantamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "id": 1,
+              "nome_local": "Ponto Central",
+              "estado": "SP",
+              "cidade": "São Paulo",
+              "bairro": "Centro",
+              "rua": "Rua Exemplo",
+              "numero": "123",
+              "complemento": "Sala 1",
+              "loja_id": 1,
+              "created_at": "2025-05-28T15:51:00.000000Z",
+              "updated_at": "2025-05-28T15:51:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/pontos-levantamento/create
+    metadata:
+      groupName: 'Pontos de Levantamento'
+      groupDescription: |-
+
+        APIs para gerenciar pontos de levantamento associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Criar um novo ponto de levantamento'
+      description: 'Cria um novo ponto de levantamento associado à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      nome_local:
+        name: nome_local
+        description: 'O nome do ponto de levantamento. Exemplo: Ponto Central'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      estado:
+        name: estado
+        description: 'O estado do ponto de levantamento. Exemplo: SP'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cidade:
+        name: cidade
+        description: 'A cidade do ponto de levantamento. Exemplo: São Paulo'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      bairro:
+        name: bairro
+        description: 'O bairro do ponto de levantamento. Exemplo: Centro'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rua:
+        name: rua
+        description: 'A rua do ponto de levantamento. Exemplo: Rua Exemplo'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numero:
+        name: numero
+        description: 'O número do endereço. Exemplo: 123'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      complemento:
+        name: complemento
+        description: 'Informações adicionais do endereço. Exemplo: Sala 1'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      loja_id:
+        name: loja_id
+        description: 'O ID da loja associada. Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      nome_local: consequatur
+      estado: consequatur
+      cidade: consequatur
+      bairro: consequatur
+      rua: consequatur
+      numero: consequatur
+      complemento: consequatur
+      loja_id: 17
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "success": true,
+            "message": "Ponto de levantamento criado com sucesso!",
+            "data": {
+              "id": 1,
+              "nome_local": "Ponto Central",
+              "estado": "SP",
+              "cidade": "São Paulo",
+              "bairro": "Centro",
+              "rua": "Rua Exemplo",
+              "numero": "123",
+              "complemento": "Sala 1",
+              "loja_id": 1,
+              "created_at": "2025-05-28T15:51:00.000000Z",
+              "updated_at": "2025-05-28T15:51:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/pontos-levantamento/update/{id}'
+    metadata:
+      groupName: 'Pontos de Levantamento'
+      groupDescription: |-
+
+        APIs para gerenciar pontos de levantamento associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar um ponto de levantamento'
+      description: 'Atualiza os dados de um ponto de levantamento existente com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do ponto de levantamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      nome_local:
+        name: nome_local
+        description: 'O nome do ponto de levantamento. Exemplo: Ponto Central'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      estado:
+        name: estado
+        description: 'O estado do ponto de levantamento. Exemplo: SP'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cidade:
+        name: cidade
+        description: 'A cidade do ponto de levantamento. Exemplo: São Paulo'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      bairro:
+        name: bairro
+        description: 'O bairro do ponto de levantamento. Exemplo: Centro'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rua:
+        name: rua
+        description: 'A rua do ponto de levantamento. Exemplo: Rua Exemplo'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numero:
+        name: numero
+        description: 'O número do endereço. Exemplo: 123'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      complemento:
+        name: complemento
+        description: 'Informações adicionais do endereço. Exemplo: Sala 1'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      nome_local: consequatur
+      estado: consequatur
+      cidade: consequatur
+      bairro: consequatur
+      rua: consequatur
+      numero: consequatur
+      complemento: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Ponto de levantamento atualizado com sucesso!",
+            "data": {
+              "id": 1,
+              "nome_local": "Ponto Central",
+              "estado": "SP",
+              "cidade": "São Paulo",
+              "bairro": "Centro",
+              "rua": "Rua Exemplo",
+              "numero": "123",
+              "complemento": "Sala 1",
+              "loja_id": 1,
+              "created_at": "2025-05-28T15:51:00.000000Z",
+              "updated_at": "2025-05-28T15:51:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/pontos-levantamento/delete/{id}'
+    metadata:
+      groupName: 'Pontos de Levantamento'
+      groupDescription: |-
+
+        APIs para gerenciar pontos de levantamento associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remover um ponto de levantamento'
+      description: 'Remove um ponto de levantamento com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do ponto de levantamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Ponto de levantamento removido com sucesso!"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

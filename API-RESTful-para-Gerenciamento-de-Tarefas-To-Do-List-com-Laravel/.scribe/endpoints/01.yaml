@@ -1,0 +1,247 @@
+name: Autenticação
+description: |-
+
+  Endpoints para gerenciamento de autenticação de usuários.
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Autenticação
+      groupDescription: |-
+
+        Endpoints para gerenciamento de autenticação de usuários.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Registra um novo usuário.'
+      description: 'Cria um novo usuário e retorna um token de acesso.'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      nome:
+        name: nome
+        description: 'Nome do usuário (máx. 255 caracteres). Exemplo: João Silva'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'E-mail único do usuário. Exemplo: joao@email.com'
+        required: true
+        example: qkunze@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Senha do usuário (mín. 6 caracteres). Exemplo: senha123'
+        required: true
+        example: 'O[2UZ5ij-e/dl4m{o,'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      nome: consequatur
+      email: qkunze@example.com
+      password: 'O[2UZ5ij-e/dl4m{o,'
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "success": true,
+            "message": "Usuário registrado com sucesso.",
+            "data": {
+              "access_token": "1|abcdef1234567890",
+              "token_type": "Bearer"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Autenticação
+      groupDescription: |-
+
+        Endpoints para gerenciamento de autenticação de usuários.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Autentica um usuário.'
+      description: 'Autentica o usuário com base nas credenciais fornecidas e retorna um token de acesso.'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'E-mail do usuário. Exemplo: joao@email.com'
+        required: true
+        example: qkunze@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Senha do usuário. Exemplo: senha123'
+        required: true
+        example: 'O[2UZ5ij-e/dl4m{o,'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: qkunze@example.com
+      password: 'O[2UZ5ij-e/dl4m{o,'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Login realizado com sucesso.",
+            "data": {
+              "access_token": "1|abcdef1234567890",
+              "token_type": "Bearer"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Autenticação
+      groupDescription: |-
+
+        Endpoints para gerenciamento de autenticação de usuários.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtém os dados do usuário autenticado.'
+      description: 'Retorna os detalhes do usuário atualmente autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Usuário autenticado recuperado com sucesso.",
+            "data": {
+              "id": 1,
+              "name": "João Silva",
+              "email": "joao@email.com",
+              "created_at": "2025-05-28T17:00:00.000000Z",
+              "updated_at": "2025-05-28T17:00:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Autenticação
+      groupDescription: |-
+
+        Endpoints para gerenciamento de autenticação de usuários.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Realiza o logout do usuário.'
+      description: 'Revoga todos os tokens do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Logout realizado com sucesso."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

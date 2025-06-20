@@ -1,0 +1,371 @@
+name: 'Gestão de Template - Imagens'
+description: |-
+
+  Endpoints para gerenciamento de imagens associadas a templates e lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/imagens-gts'
+    metadata:
+      groupName: 'Gestão de Template - Imagens'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de imagens associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todas as imagens de um template.'
+      description: 'Retorna uma lista de imagens associadas ao template especificado e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "template_id": 1,
+                "imagem": "imagem-exemplo.jpg",
+                "imagem_path": "https://storage.exemplo.com/path/to/imagem-exemplo.jpg",
+                "titulo": "Imagem Exemplo"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/imagens-gts/show/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Imagens'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de imagens associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe uma imagem específica.'
+      description: 'Retorna os detalhes de uma imagem específica com base no ID do template e da imagem.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the show.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem": "imagem-exemplo.jpg",
+            "imagem_path": "https://storage.exemplo.com/path/to/imagem-exemplo.jpg",
+            "titulo": "Imagem Exemplo"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/lojas/templates/{template_id}/imagens-gts/store'
+    metadata:
+      groupName: 'Gestão de Template - Imagens'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de imagens associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria uma nova imagem.'
+      description: 'Cria uma nova imagem associada ao template e à loja do usuário autenticado, com upload de arquivo.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagem:
+        name: imagem
+        description: 'A imagem a ser carregada (jpg, jpeg, png, webp, máx. 2MB).'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      titulo:
+        name: titulo
+        description: 'nullable O título da imagem (máx. 255 caracteres). Exemplo: "Imagem Exemplo"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      titulo: consequatur
+    fileParameters:
+      imagem: null
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem": "imagem-exemplo.jpg",
+            "imagem_path": "https://storage.exemplo.com/path/to/imagem-exemplo.jpg",
+            "titulo": "Imagem Exemplo"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/lojas/templates/{template_id}/imagens-gts/update/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Imagens'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de imagens associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza uma imagem existente.'
+      description: 'Atualiza os dados de uma imagem específica, com a opção de substituir o arquivo de imagem.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagem:
+        name: imagem
+        description: 'nullable A nova imagem a ser carregada (jpg, jpeg, png, webp, máx. 2MB).'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      titulo:
+        name: titulo
+        description: 'nullable O título da imagem (máx. 255 caracteres). Exemplo: "Imagem Atualizada"'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      titulo: consequatur
+    fileParameters:
+      imagem: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem": "imagem-atualizada.jpg",
+            "imagem_path": "https://storage.exemplo.com/path/to/imagem-atualizada.jpg",
+            "titulo": "Imagem Atualizada"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/lojas/templates/{template_id}/imagens-gts/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Imagens'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de imagens associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta uma imagem.'
+      description: 'Remove uma imagem específica e seu arquivo associado do armazenamento.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Imagem deletada com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

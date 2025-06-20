@@ -1,0 +1,419 @@
+name: 'Gestão de Template - Banners Rotativos'
+description: |-
+
+  Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/banners-rotativos/all'
+    metadata:
+      groupName: 'Gestão de Template - Banners Rotativos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todos os banners rotativos de um template.'
+      description: 'Retorna uma lista de banners rotativos associados ao template especificado e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "template_id": 1,
+                "imagem_desktop_path": "https://storage.exemplo.com/path/to/desktop.jpg",
+                "imagem_mobile_path": "https://storage.exemplo.com/path/to/mobile.jpg",
+                "largura_tela": true,
+                "efeito_movimento": false
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/banners-rotativos/view/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Banners Rotativos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe um banner rotativo específico.'
+      description: 'Retorna os detalhes de um banner rotativo específico com base no ID do template e do banner.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the view.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem_desktop_path": "https://storage.exemplo.com/path/to/desktop.jpg",
+            "imagem_mobile_path": "https://storage.exemplo.com/path/to/mobile.jpg",
+            "largura_tela": true,
+            "efeito_movimento": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/lojas/templates/{template_id}/banners-rotativos/create'
+    metadata:
+      groupName: 'Gestão de Template - Banners Rotativos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria um novo banner rotativo.'
+      description: 'Cria um novo banner rotativo associado ao template e à loja do usuário autenticado, com upload de imagens.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagem_desktop:
+        name: imagem_desktop
+        description: 'A imagem para desktop (jpg, jpeg, png, webp, máx. 2MB).'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      imagem_mobile:
+        name: imagem_mobile
+        description: 'nullable A imagem para mobile (jpg, jpeg, png, webp, máx. 2MB).'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      largura_tela:
+        name: largura_tela
+        description: 'Define se o banner deve ocupar a largura total da tela. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      efeito_movimento:
+        name: efeito_movimento
+        description: 'Define se o banner deve ter efeito de movimento. Exemplo: false'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      largura_tela: false
+      efeito_movimento: false
+    fileParameters:
+      imagem_desktop: null
+      imagem_mobile: null
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem_desktop_path": "https://storage.exemplo.com/path/to/desktop.jpg",
+            "imagem_mobile_path": "https://storage.exemplo.com/path/to/mobile.jpg",
+            "largura_tela": true,
+            "efeito_movimento": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/lojas/templates/{template_id}/banners-rotativos/update/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Banners Rotativos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza um banner rotativo existente.'
+      description: 'Atualiza os dados de um banner rotativo específico, incluindo a possibilidade de substituir imagens.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      imagem_desktop:
+        name: imagem_desktop
+        description: 'A nova imagem para desktop (jpg, jpeg, png, webp, máx. 2MB).'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      imagem_mobile:
+        name: imagem_mobile
+        description: 'A nova imagem para mobile (jpg, jpeg, png, webp, máx. 2MB).'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      largura_tela:
+        name: largura_tela
+        description: 'Define se o banner deve ocupar a largura total da tela. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      efeito_movimento:
+        name: efeito_movimento
+        description: 'Define se o banner deve ter efeito de movimento. Exemplo: false'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      largura_tela: false
+      efeito_movimento: false
+    fileParameters:
+      imagem_desktop: null
+      imagem_mobile: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "imagem_desktop_path": "https://storage.exemplo.com/path/to/new_desktop.jpg",
+            "imagem_mobile_path": "https://storage.exemplo.com/path/to/new_mobile.jpg",
+            "largura_tela": true,
+            "efeito_movimento": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/lojas/templates/{template_id}/banners-rotativos/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Banners Rotativos'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de banners rotativos associados a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta um banner rotativo.'
+      description: 'Remove um banner rotativo específico e suas imagens associadas do armazenamento.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Banner rotativo deletado com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

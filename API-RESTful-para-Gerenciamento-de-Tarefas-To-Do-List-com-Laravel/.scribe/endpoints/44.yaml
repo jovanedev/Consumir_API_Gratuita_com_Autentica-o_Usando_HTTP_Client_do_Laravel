@@ -1,0 +1,393 @@
+name: 'Gestão de Template - Checkouts'
+description: |-
+
+  Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/checkouts-gts'
+    metadata:
+      groupName: 'Gestão de Template - Checkouts'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todas as configurações de checkout de um template.'
+      description: 'Retorna uma lista de configurações de checkout associadas ao template especificado e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "template_id": 1,
+                "exibir_opcoes_entrega": true,
+                "exibir_opcoes_pagamento": true,
+                "exibir_resumo_pedido": false
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/lojas/templates/{template_id}/checkouts-gts/show/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Checkouts'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe uma configuração de checkout específica.'
+      description: 'Retorna os detalhes de uma configuração de checkout específica com base no ID do template e do checkout.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the show.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "exibir_opcoes_entrega": true,
+            "exibir_opcoes_pagamento": true,
+            "exibir_resumo_pedido": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/lojas/templates/{template_id}/checkouts-gts/store'
+    metadata:
+      groupName: 'Gestão de Template - Checkouts'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria uma nova configuração de checkout.'
+      description: 'Cria uma nova configuração de checkout associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      exibir_opcoes_entrega:
+        name: exibir_opcoes_entrega
+        description: 'Define se as opções de entrega devem ser exibidas. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      exibir_opcoes_pagamento:
+        name: exibir_opcoes_pagamento
+        description: 'Define se as opções de pagamento devem ser exibidas. Exemplo: true'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      exibir_resumo_pedido:
+        name: exibir_resumo_pedido
+        description: 'Define se o resumo do pedido deve ser exibido. Exemplo: false'
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      exibir_opcoes_entrega: false
+      exibir_opcoes_pagamento: false
+      exibir_resumo_pedido: false
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "exibir_opcoes_entrega": true,
+            "exibir_opcoes_pagamento": true,
+            "exibir_resumo_pedido": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/lojas/templates/{template_id}/checkouts-gts/update/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Checkouts'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza uma configuração de checkout existente.'
+      description: 'Atualiza os dados de uma configuração de checkout específica associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      exibir_opcoes_entrega:
+        name: exibir_opcoes_entrega
+        description: 'Define se as opções de entrega devem ser exibidas. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      exibir_opcoes_pagamento:
+        name: exibir_opcoes_pagamento
+        description: 'Define se as opções de pagamento devem be exibidas. Exemplo: true'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      exibir_resumo_pedido:
+        name: exibir_resumo_pedido
+        description: 'Define se o resumo do pedido deve ser exibido. Exemplo: false'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      exibir_opcoes_entrega: false
+      exibir_opcoes_pagamento: false
+      exibir_resumo_pedido: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "loja_id": 1,
+            "template_id": 1,
+            "exibir_opcoes_entrega": true,
+            "exibir_opcoes_pagamento": true,
+            "exibir_resumo_pedido": false
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/lojas/templates/{template_id}/checkouts-gts/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Template - Checkouts'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de configurações de checkout associadas a templates e lojas.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta uma configuração de checkout.'
+      description: 'Remove uma configuração de checkout específica associada ao template e à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      template_id:
+        name: template_id
+        description: 'The ID of the template.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      template_id: consequatur
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Checkout deletado com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

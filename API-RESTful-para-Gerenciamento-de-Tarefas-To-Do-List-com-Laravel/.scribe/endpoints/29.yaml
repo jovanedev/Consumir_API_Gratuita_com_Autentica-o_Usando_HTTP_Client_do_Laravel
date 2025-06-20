@@ -1,0 +1,460 @@
+name: 'Gestão de Clientes'
+description: |-
+
+  Endpoints para gerenciamento de clientes.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/clientes
+    metadata:
+      groupName: 'Gestão de Clientes'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de clientes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lista todos os clientes.'
+      description: 'Retorna uma lista de todos os clientes cadastrados no sistema.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "user_id": 1,
+                "nome": "João Silva",
+                "data_nascimento": "1990-01-15",
+                "genero": "masculino",
+                "documento_tipo": "BI",
+                "documento_numero": "123456789",
+                "endereco_id": 1,
+                "status": "ativo"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/clientes/show/{id}'
+    metadata:
+      groupName: 'Gestão de Clientes'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de clientes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibe um cliente específico.'
+      description: 'Retorna os detalhes de um cliente com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the show.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "user_id": 1,
+            "nome": "João Silva",
+            "data_nascimento": "1990-01-15",
+            "genero": "masculino",
+            "documento_tipo": "BI",
+            "documento_numero": "123456789",
+            "endereco_id": 1,
+            "status": "ativo"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/clientes/store
+    metadata:
+      groupName: 'Gestão de Clientes'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de clientes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria um novo cliente.'
+      description: 'Cria um novo cliente com base nos dados fornecidos.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'O ID do usuário associado (deve existir na tabela users). Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      nome:
+        name: nome
+        description: 'Nome do cliente (máx. 255 caracteres). Exemplo: João Silva'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data_nascimento:
+        name: data_nascimento
+        description: 'Data de nascimento do cliente (formato Y-m-d). Exemplo: 1990-01-15'
+        required: true
+        example: consequatur
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      genero:
+        name: genero
+        description: 'Gênero do cliente (masculino, feminino, outro). Exemplo: masculino'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      documento_tipo:
+        name: documento_tipo
+        description: 'Tipo de documento (BI, Passaporte, Outro). Exemplo: BI'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      documento_numero:
+        name: documento_numero
+        description: 'Número do documento (máx. 255 caracteres). Exemplo: 123456789'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      endereco_id:
+        name: endereco_id
+        description: 'O ID do endereço associado (deve existir na tabela enderecos). Exemplo: 1'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'Status do cliente (ativo, inativo). Exemplo: ativo'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_id: 17
+      nome: consequatur
+      data_nascimento: consequatur
+      genero: consequatur
+      documento_tipo: consequatur
+      documento_numero: consequatur
+      endereco_id: 17
+      status: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "user_id": 1,
+            "nome": "João Silva",
+            "data_nascimento": "1990-01-15",
+            "genero": "masculino",
+            "documento_tipo": "BI",
+            "documento_numero": "123456789",
+            "endereco_id": 1,
+            "status": "ativo"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/clientes/update/{id}'
+    metadata:
+      groupName: 'Gestão de Clientes'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de clientes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza um cliente existente.'
+      description: 'Atualiza os dados de um cliente específico com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the update.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'O ID do usuário associado (deve existir na tabela users). Exemplo: 2'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      nome:
+        name: nome
+        description: 'Nome do cliente (máx. 255 caracteres). Exemplo: Maria Souza'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data_nascimento:
+        name: data_nascimento
+        description: 'Data de nascimento do cliente (formato Y-m-d). Exemplo: 1985-03-20'
+        required: false
+        example: consequatur
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      genero:
+        name: genero
+        description: 'Gênero do cliente (masculino, feminino, outro). Exemplo: feminino'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      documento_tipo:
+        name: documento_tipo
+        description: 'Tipo de documento (BI, Passaporte, Outro). Exemplo: Passaporte'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      documento_numero:
+        name: documento_numero
+        description: 'Número do documento (máx. 255 caracteres). Exemplo: A987654321'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      endereco_id:
+        name: endereco_id
+        description: 'O ID do endereço associado (deve existir na tabela enderecos). Exemplo: 2'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'Status do cliente (ativo, inativo). Exemplo: inativo'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_id: 17
+      nome: consequatur
+      data_nascimento: consequatur
+      genero: consequatur
+      documento_tipo: consequatur
+      documento_numero: consequatur
+      endereco_id: 17
+      status: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "user_id": 2,
+            "nome": "Maria Souza",
+            "data_nascimento": "1985-03-20",
+            "genero": "feminino",
+            "documento_tipo": "Passaporte",
+            "documento_numero": "A987654321",
+            "endereco_id": 2,
+            "status": "inativo"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/clientes/destroy/{id}'
+    metadata:
+      groupName: 'Gestão de Clientes'
+      groupDescription: |-
+
+        Endpoints para gerenciamento de clientes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta um cliente.'
+      description: 'Remove um cliente específico com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the destroy.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Cliente deletado com sucesso"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

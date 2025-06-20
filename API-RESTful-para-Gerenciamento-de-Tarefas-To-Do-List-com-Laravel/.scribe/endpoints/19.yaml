@@ -1,0 +1,331 @@
+name: Redirecionamentos
+description: |-
+
+  APIs para gerenciar redirecionamentos associados a uma loja.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/redirecionamentos/all
+    metadata:
+      groupName: Redirecionamentos
+      groupDescription: |-
+
+        APIs para gerenciar redirecionamentos associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar redirecionamentos'
+      description: 'Retorna uma lista de todos os redirecionamentos associados à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Lista de redirecionamentos recuperada com sucesso",
+            "data": [
+              {
+                "id": 1,
+                "loja_id": 1,
+                "url_nova": "https://example.com/nova-pagina",
+                "url_antiga": "https://example.com/pagina-antiga",
+                "created_at": "2025-05-28T16:02:00.000000Z",
+                "updated_at": "2025-05-28T16:02:00.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/redirecionamentos/view/{id}'
+    metadata:
+      groupName: Redirecionamentos
+      groupDescription: |-
+
+        APIs para gerenciar redirecionamentos associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Exibir um redirecionamento'
+      description: 'Retorna os detalhes de um redirecionamento específico com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do redirecionamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Redirecionamento encontrado com sucesso",
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "url_nova": "https://example.com/nova-pagina",
+              "url_antiga": "https://example.com/pagina-antiga",
+              "created_at": "2025-05-28T16:02:00.000000Z",
+              "updated_at": "2025-05-28T16:02:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/redirecionamentos/create
+    metadata:
+      groupName: Redirecionamentos
+      groupDescription: |-
+
+        APIs para gerenciar redirecionamentos associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Criar um novo redirecionamento'
+      description: 'Cria um novo redirecionamento associado à loja do usuário autenticado.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      url_nova:
+        name: url_nova
+        description: 'URL para a qual o redirecionamento aponta. Exemplo: https://example.com/nova-pagina'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      url_antiga:
+        name: url_antiga
+        description: 'URL antiga que será redirecionada. Exemplo: https://example.com/pagina-antiga'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      url_nova: consequatur
+      url_antiga: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "success": true,
+            "message": "Redirecionamento criado com sucesso!",
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "url_nova": "https://example.com/nova-pagina",
+              "url_antiga": "https://example.com/pagina-antiga",
+              "created_at": "2025-05-28T16:02:00.000000Z",
+              "updated_at": "2025-05-28T16:02:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/redirecionamentos/update/{id}'
+    metadata:
+      groupName: Redirecionamentos
+      groupDescription: |-
+
+        APIs para gerenciar redirecionamentos associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar um redirecionamento'
+      description: 'Atualiza os dados de um redirecionamento existente com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do redirecionamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      url_nova:
+        name: url_nova
+        description: 'URL para a qual o redirecionamento aponta. Exemplo: https://example.com/nova-pagina'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      url_antiga:
+        name: url_antiga
+        description: 'URL antiga que será redirecionada. Exemplo: https://example.com/pagina-antiga'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      url_nova: consequatur
+      url_antiga: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Redirecionamento atualizado com sucesso!",
+            "data": {
+              "id": 1,
+              "loja_id": 1,
+              "url_nova": "https://example.com/nova-pagina",
+              "url_antiga": "https://example.com/pagina-antiga",
+              "created_at": "2025-05-28T16:02:00.000000Z",
+              "updated_at": "2025-05-28T16:02:00.000000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/redirecionamentos/delete/{id}'
+    metadata:
+      groupName: Redirecionamentos
+      groupDescription: |-
+
+        APIs para gerenciar redirecionamentos associados a uma loja.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remover um redirecionamento'
+      description: 'Remove um redirecionamento com base no ID fornecido.'
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'O ID do redirecionamento. Exemplo: 1'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Redirecionamento removido com sucesso!"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
