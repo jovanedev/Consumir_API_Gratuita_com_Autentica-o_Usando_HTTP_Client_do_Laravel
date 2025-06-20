@@ -168,14 +168,14 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/teste
+    uri: api/tarefas
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Lista todas as tarefas.'
+      description: 'Retorna uma lista de todas as tarefas no banco de dados.'
       authenticated: false
       deprecated: false
       custom: []
@@ -192,13 +192,296 @@ endpoints:
     responses:
       -
         status: 200
-        content: 'API funcionando corretamente!'
-        headers:
-          content-type: 'text/html; charset=UTF-8'
-          cache-control: 'no-cache, private'
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
+        content: |-
+          {
+            [
+              {
+                "id": 1,
+                "titulo": "Tarefa Exemplo",
+                "descricao": "Descrição da tarefa",
+                "status": "pendente",
+                "created_at": "2025-06-20T14:00:00.000000Z",
+                "updated_at": "2025-06-20T14:00:00.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tarefas/criar
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cria uma nova tarefa.'
+      description: 'Cria uma nova tarefa com título e descrição.'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      titulo:
+        name: titulo
+        description: 'Título da tarefa (máx. 255 caracteres). Exemplo: Tarefa Exemplo'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      descricao:
+        name: descricao
+        description: 'nullable Descrição da tarefa. Exemplo: Descrição detalhada'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      status:
+        name: status
+        description: 'nullable Status da tarefa (pendente, em_andamento, concluída). Exemplo: pendente'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      titulo: consequatur
+      descricao: consequatur
+      status: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "id": 1,
+            "titulo": "Tarefa Exemplo",
+            "descricao": "Descrição detalhada",
+            "status": "pendente",
+            "created_at": "2025-06-20T14:00:00.000000Z",
+            "updated_at": "2025-06-20T14:00:00.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/tarefas/atualizar/{tarefa_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualiza uma tarefa existente.'
+      description: 'Atualiza o título, descrição ou status de uma tarefa específica.'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      tarefa_id:
+        name: tarefa_id
+        description: 'The ID of the tarefa.'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      tarefa_id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      titulo:
+        name: titulo
+        description: 'nullable Título da tarefa (máx. 255 caracteres). Exemplo: Tarefa Atualizada'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      descricao:
+        name: descricao
+        description: 'nullable Descrição da tarefa. Exemplo: Nova descrição'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      status:
+        name: status
+        description: 'nullable Status da tarefa (pendente, em_andamento, concluída). Exemplo: concluida'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      titulo: consequatur
+      descricao: consequatur
+      status: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "titulo": "Tarefa Atualizada",
+            "descricao": "Nova descrição",
+            "status": "concluida",
+            "created_at": "2025-06-20T14:00:00.000000Z",
+            "updated_at": "2025-06-20T14:01:00.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tarefas/deletar/{tarefa_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deleta uma tarefa.'
+      description: 'Remove uma tarefa específica do banco de dados.'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      tarefa_id:
+        name: tarefa_id
+        description: 'The ID of the tarefa.'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      tarefa_id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/tarefas/filtrar
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Filtra tarefas por status.'
+      description: 'Retorna uma lista de tarefas filtradas pelo status fornecido (pendente, em_andamento, concluída).'
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      status:
+        name: status
+        description: 'Status para filtrar as tarefas (pendente, em_andamento, concluída). Exemplo: pendente'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      status: consequatur
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            [
+              {
+                "id": 1,
+                "titulo": "Tarefa Exemplo",
+                "descricao": "Descrição da tarefa",
+                "status": "pendente",
+                "created_at": "2025-06-20T14:00:00.000000Z",
+                "updated_at": "2025-06-20T14:00:00.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
