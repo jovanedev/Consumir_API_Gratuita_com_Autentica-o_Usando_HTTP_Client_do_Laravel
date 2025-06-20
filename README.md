@@ -1,4 +1,4 @@
-########################################################################### API-RESTful-para-Gerenciamento-de-Tarefas-To-Do-List-com-Laravel ##############################################################################
+################################ API-RESTful-para-Gerenciamento-de-Tarefas-To-Do-List-com-Laravel ########################################
 
 API de Gerenciamento de Tarefas
 Uma API RESTful construída com Laravel para gerenciar tarefas.
@@ -67,7 +67,7 @@ Acesse a documentação em:
 http://localhost:8000/docs
 
 
-####################################################################### Consumir_API_Gratuita_com_Autenticação_Usando_HTTP_Client_do_Laravels ####################################################################
+################# Consumir_API_Gratuita_com_Autenticação_Usando_HTTP_Client_do_Laravels #############################
 
 Este projeto Laravel implementa uma API RESTful para gerenciamento de tarefas e consome a OpenWeatherMap API para fornecer dados climáticos, com destaque para cidades como Luanda, Lisboa, São Paulo, e Nova York.
 Configuração da OpenWeatherMap API
@@ -125,7 +125,7 @@ Exemplo de Resposta (Erro):{
 }
 
 
-################################################################<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>##############################################################################
+################<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>###########
 
 
 Exemplo de Integração
@@ -189,7 +189,8 @@ Como Usar:
 </html>
 
 
-################################################################<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>################################################################################
+##########################<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>###############################
+
 
 Digite uma cidade (ex.: Luanda) e clique em "Consultar".
 Veja os resultados estilizados com Tailwind CSS.
