@@ -1,0 +1,800 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentação da API Ecom",
+        "description": "API de Autenticação da Plataforma",
+        "contact": {
+            "email": "teuemail@exemplo.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Autenticação"
+                ],
+                "summary": "Registrar novo usuário",
+                "description": "Cria um novo usuário e retorna o token de acesso",
+                "operationId": "8a56853624e025573120a09a4c75d468",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "João Silva"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "joao@email.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "senha123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário registrado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string"
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "Bearer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Autenticação"
+                ],
+                "summary": "Login de usuário",
+                "description": "Autentica o usuário e retorna o token de acesso",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "joao@email.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "senha123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login bem-sucedido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string"
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "Bearer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "Autenticação"
+                ],
+                "summary": "Obter usuário autenticado",
+                "description": "Retorna os dados do usuário autenticado",
+                "operationId": "7c1cf647d76fad4b3eb1549fa4fe2f4c",
+                "responses": {
+                    "200": {
+                        "description": "Dados do usuário autenticado"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Autenticação"
+                ],
+                "summary": "Logout do usuário",
+                "description": "Revoga o token do usuário autenticado",
+                "operationId": "fe8f3429cd6979b3b4517e186505f9f9",
+                "responses": {
+                    "200": {
+                        "description": "Logout realizado com sucesso"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/categorias/all": {
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Listar todas as categorias",
+                "description": "Listar todas as categorias.",
+                "operationId": "8b2d59522bf0a1397c8006bfe0c4196b",
+                "responses": {
+                    "200": {
+                        "description": "Lista de categorias retornada com sucesso."
+                    }
+                }
+            }
+        },
+        "/api/categorias/create": {
+            "post": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Criar uma nova categoria",
+                "description": "Criar uma nova categoria.",
+                "operationId": "753aeff27004f248c28bfd7cf6c07819",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "loja_id"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Categoria Exemplo"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Descrição da categoria"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "categoria-exemplo"
+                                    },
+                                    "loja_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Categoria criada com sucesso."
+                    },
+                    "422": {
+                        "description": "Erro de validação."
+                    }
+                }
+            }
+        },
+        "/api/categorias/view/{id}": {
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Buscar uma categoria específica",
+                "description": "Mostrar detalhes de uma categoria específica.",
+                "operationId": "72179a7e1c8e60162593886683cec82a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da categoria",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalhes da categoria retornados com sucesso."
+                    },
+                    "404": {
+                        "description": "Categoria não encontrada."
+                    }
+                }
+            }
+        },
+        "/api/categorias/update/{id}": {
+            "put": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Atualizar uma categoria existente",
+                "description": "Atualizar uma categoria existente.",
+                "operationId": "e9ca106cb6251bb3734b30d712f181aa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da categoria",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "loja_id"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Categoria Atualizada"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Nova descrição"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "categoria-atualizada"
+                                    },
+                                    "loja_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": false
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Categoria atualizada com sucesso."
+                    },
+                    "404": {
+                        "description": "Categoria não encontrada."
+                    },
+                    "422": {
+                        "description": "Erro de validação."
+                    }
+                }
+            }
+        },
+        "/api/categorias/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Remover uma categoria",
+                "description": "Remover uma categoria.",
+                "operationId": "a85ea67c77de40498a8e8bd2eb934dd4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da categoria",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoria removida com sucesso."
+                    },
+                    "404": {
+                        "description": "Categoria não encontrada."
+                    }
+                }
+            }
+        },
+        "/api/checkouts/create": {
+            "post": {
+                "tags": [
+                    "Checkouts"
+                ],
+                "summary": "Criar um novo checkout",
+                "operationId": "4cee84942d2cd7456cefceec0775aecb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "loja_id"
+                                ],
+                                "properties": {
+                                    "loja_id": {
+                                        "type": "integer"
+                                    },
+                                    "cores_layout": {
+                                        "type": "boolean"
+                                    },
+                                    "pedir_telefone": {
+                                        "type": "boolean"
+                                    },
+                                    "pedir_endereco": {
+                                        "type": "boolean"
+                                    },
+                                    "mensagem_cliente": {
+                                        "type": "string"
+                                    },
+                                    "mensagem_segmento": {
+                                        "type": "string"
+                                    },
+                                    "compra": {
+                                        "type": "string"
+                                    },
+                                    "checkout_acelerado": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Checkout criado com sucesso"
+                    },
+                    "422": {
+                        "description": "Erro de validação"
+                    }
+                }
+            }
+        },
+        "/api/checkouts/view/{id}": {
+            "get": {
+                "tags": [
+                    "Checkouts"
+                ],
+                "summary": "Mostrar detalhes de um checkout",
+                "operationId": "545d40a1de128c804020d806ca2f9fbb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do checkout",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalhes do checkout"
+                    },
+                    "404": {
+                        "description": "Checkout não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/checkouts/update/{id}": {
+            "put": {
+                "tags": [
+                    "Checkouts"
+                ],
+                "summary": "Atualizar um checkout",
+                "operationId": "90572eacb1437dfad3169ffa62869a6b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do checkout",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "loja_id"
+                                ],
+                                "properties": {
+                                    "loja_id": {
+                                        "type": "integer"
+                                    },
+                                    "cores_layout": {
+                                        "type": "boolean"
+                                    },
+                                    "pedir_telefone": {
+                                        "type": "boolean"
+                                    },
+                                    "pedir_endereco": {
+                                        "type": "boolean"
+                                    },
+                                    "mensagem_cliente": {
+                                        "type": "string"
+                                    },
+                                    "mensagem_segmento": {
+                                        "type": "string"
+                                    },
+                                    "compra": {
+                                        "type": "string"
+                                    },
+                                    "checkout_acelerado": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Checkout atualizado com sucesso"
+                    },
+                    "404": {
+                        "description": "Checkout não encontrado"
+                    },
+                    "422": {
+                        "description": "Erro de validação"
+                    }
+                }
+            }
+        },
+        "/api/checkouts/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Checkouts"
+                ],
+                "summary": "Remover um checkout",
+                "operationId": "ae4866602edc4e71bb4877640e7084f8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do checkout",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Checkout removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Checkout não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/descontos/all": {
+            "get": {
+                "tags": [
+                    "Descontos"
+                ],
+                "summary": "Listar todos os descontos da loja logada",
+                "operationId": "ce81f267554a8017ad2930efb8eb1e35",
+                "responses": {
+                    "200": {
+                        "description": "Lista de descontos retornada com sucesso"
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/descontos/view/{id}": {
+            "get": {
+                "tags": [
+                    "Descontos"
+                ],
+                "summary": "Buscar um desconto específico",
+                "operationId": "ad8e656988fb8632047858874166feb3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do desconto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalhes do desconto retornados com sucesso"
+                    },
+                    "404": {
+                        "description": "Desconto não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/descontos/create": {
+            "post": {
+                "tags": [
+                    "Descontos"
+                ],
+                "summary": "Criar um novo desconto",
+                "operationId": "b3d8d781acdc8ab46c9b043414e9564d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "codigo",
+                                    "tipo",
+                                    "valor",
+                                    "data_inicio",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "codigo": {
+                                        "type": "string"
+                                    },
+                                    "tipo": {
+                                        "type": "string",
+                                        "enum": [
+                                            "percentagem",
+                                            "dinheiro"
+                                        ]
+                                    },
+                                    "valor": {
+                                        "type": "number"
+                                    },
+                                    "data_inicio": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "data_fim": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ativo",
+                                            "inativo"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Desconto criado com sucesso"
+                    },
+                    "422": {
+                        "description": "Erro de validação"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/descontos/update/{id}": {
+            "put": {
+                "tags": [
+                    "Descontos"
+                ],
+                "summary": "Atualizar um desconto",
+                "operationId": "a8a47334016b793ac2f4f46a77570b4e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do desconto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "codigo",
+                                    "tipo",
+                                    "valor",
+                                    "data_inicio",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "codigo": {
+                                        "type": "string"
+                                    },
+                                    "tipo": {
+                                        "type": "string",
+                                        "enum": [
+                                            "percentagem",
+                                            "dinheiro"
+                                        ]
+                                    },
+                                    "valor": {
+                                        "type": "number"
+                                    },
+                                    "data_inicio": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "data_fim": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ativo",
+                                            "inativo"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Desconto atualizado com sucesso"
+                    },
+                    "404": {
+                        "description": "Desconto não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/descontos/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Descontos"
+                ],
+                "summary": "Remover um desconto",
+                "operationId": "7ddd8309cc0b4fa35ed4b00889480d74",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do desconto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Desconto removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Desconto não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Autenticação",
+            "description": "Endpoints de autenticação de usuários"
+        },
+        {
+            "name": "Categorias",
+            "description": "Endpoints para gerenciamento de categorias"
+        },
+        {
+            "name": "Descontos",
+            "description": "Gerenciamento de descontos da loja"
+        },
+        {
+            "name": "Checkouts",
+            "description": "Checkouts"
+        }
+    ]
+}
