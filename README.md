@@ -1,18 +1,37 @@
-################################ API-RESTful-para-Gerenciamento-de-Tarefas-To-Do-List-com-Laravel ########################################
+API RESTful para Gerenciamento de Tarefas e Consulta de Clima
+Este projeto Laravel implementa duas APIs RESTful:
 
-API de Gerenciamento de Tarefas
-Uma API RESTful construída com Laravel para gerenciar tarefas.
+API de Gerenciamento de Tarefas: Permite criar, listar, filtrar, atualizar e deletar tarefas em uma To-Do List.
+API de Consulta de Clima: Consome a OpenWeatherMap API para fornecer dados climáticos de cidades como Luanda, Lisboa, São Paulo e Nova York.
+
+Ambas as APIs utilizam o framework Laravel 11 e são documentadas com a biblioteca Scribe.
 Requisitos
+Para executar este projeto, você precisará das seguintes ferramentas:
 
-PHP 8.2+
-Composer
-MySQL
-Laravel 11
-Scribe (para documentação)
+PHP: Versão 8.2 ou superior
+Composer: Gerenciador de dependências para PHP
+MySQL: Banco de dados para a API de Tarefas
+Laravel: Versão 11
+Para geração de documentação automática da API usou-se o Scribe ao invés do Swagger
+Use o Postman ou curl  para testar os endpoints da API
+Chave da API OpenWeatherMap (fornecida abaixo para testes)
 
 Instruções de Configuração
+Siga os passos abaixo para configurar e executar o projeto localmente.
+1. Clonar o Repositório
+Clone o repositório do GitHub para sua máquina local:
+git clone https://github.com/jovanedev/Consumir_API_Gratuita_com_Autentica-o_Usando_HTTP_Client_do_Laravel.git
+cd Consumir_API_Gratuita_com_Autentica-o_Usando_HTTP_Client_do_Laravel
 
-Configure o arquivo .env com as credenciais do banco de dados:
+2. Instalar Dependências
+Instale as dependências do PHP usando o Composer:
+composer install
+
+3. Configurar o Arquivo .env
+Crie um arquivo .env na raiz do projeto copiando o arquivo .env.example:
+cp .env.example .env
+
+Edite o arquivo .env para configurar as credenciais do banco de dados e a chave da API OpenWeatherMap:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -20,118 +39,152 @@ DB_DATABASE=todo_api
 DB_USERNAME=root
 DB_PASSWORD=
 
+OPENWEATHERMAP_API_KEY=41f2ac9d462dee529f4d1ca72279022b
 
-Execute as migrações:
+
+Nota: Substitua DB_USERNAME e DB_PASSWORD pelas credenciais do seu banco de dados MySQL. A chave da API OpenWeatherMap fornecida (41f2ac9d462dee529f4d1ca72279022b) é para testes. Para uso em produção, obtenha sua própria chave em OpenWeatherMap.
+
+4. Configurar o Serviço OpenWeatherMap
+Adicione a configuração do serviço OpenWeatherMap no arquivo config/services.php:
+'openweathermap' => [
+    'api_key' => env('OPENWEATHERMAP_API_KEY'),
+],
+
+5. Executar as Migrações
+Execute as migrações para criar as tabelas necessárias no banco de dados:
 php artisan migrate
 
-
-Inicie o servidor local:
+6. Iniciar o Servidor Local
+Inicie o servidor de desenvolvimento do Laravel:
 php artisan serve
 
-
-Gere a documentação com Scribe:
+O servidor estará disponível em http://localhost:8000.
+7. Gerar Documentação com Scribe
+Gere a documentação da API usando o Scribe:
 php artisan scribe:generate
 
+Acesse a documentação em http://localhost:8000/docs.
+Testando as APIs
+Use ferramentas como Postman ou curl para testar os endpoints das APIs. Abaixo estão os detalhes de cada API.
+API de Gerenciamento de Tarefas
+Endpoints Disponíveis
+
+Criar Tarefa
+
+Método: POST
+
+URL: http://localhost:8000/api/tarefas/criar
+
+Corpo da Requisição:
+{
+    "titulo": "Nova Tarefa",
+    "descricao": "Descrição da tarefa",
+    "status": "pendente"
+}
 
 
-Testando a API
-Use Postman ou curl para testar os endpoints.
-Exemplos de Endpoints
-
-Criar Tarefa:
+Exemplo com curl:
 curl -X POST http://localhost:8000/api/tarefas/criar -H "Content-Type: application/json" -d '{"titulo":"Nova Tarefa","descricao":"Descrição da tarefa","status":"pendente"}'
 
 
-Listar Tarefas:
+
+
+Listar Tarefas
+
+Método: GET
+
+URL: http://localhost:8000/api/tarefas
+
+Exemplo com curl:
 curl -X GET http://localhost:8000/api/tarefas
 
 
-Filtrar Tarefas por Status:
+
+
+Filtrar Tarefas por Status
+
+Método: GET
+
+URL: http://localhost:8000/api/tarefas/filtrar?status=pendente
+
+Exemplo com curl:
 curl -X GET http://localhost:8000/api/tarefas/filtrar?status=pendente
 
 
-Atualizar Tarefa:
-curl -X PATCH http://localhost:8000/api/tarefas/atualizar/1 -H "Content-Type: application/json" -d '{"status":"concluida"}'
 
 
-Deletar Tarefa:
+Atualizar Tarefa
+
+Método: PATCH
+
+URL: http://localhost:8000/api/tarefas/atualizar/{id}
+
+Corpo da Requisição:
+{
+    "status": "concluida"
+}
+
+
+Exemplo com curl:
+curl -X PATCH http://localhost:8000/api/tarefas/atualizar/1 -H "Content-Type: application/json" -d '{"status":"conclui
+da"}'
+
+
+
+
+Deletar Tarefa
+
+Método: DELETE
+
+URL: http://localhost:8000/api/tarefas/deletar/{id}
+
+Exemplo com curl:
 curl -X DELETE http://localhost:8000/api/tarefas/deletar/1
 
 
 
-Executando Testes
+
+
+Executando Testes Automatizados
+Para executar os testes da API de Tarefas:
 php artisan test
 
-Documentação da API
-Acesse a documentação em:
-http://localhost:8000/docs
+API de Consulta de Clima
+Endpoint Disponível
+
+Método: GET
+
+URL: http://localhost:8000/api/clima?cidade={NomeDaCidade}
+
+Parâmetro: cidade (obrigatório, ex.: Luanda, Lisboa, São Paulo, Nova York)
+
+Exemplo de Requisição:
+curl -X GET http://localhost:8000/api/clima?cidade=Luanda
 
 
-################# Consumir_API_Gratuita_com_Autenticação_Usando_HTTP_Client_do_Laravels #############################
-
-Este projeto Laravel implementa uma API RESTful para gerenciamento de tarefas e consome a OpenWeatherMap API para fornecer dados climáticos, com destaque para cidades como Luanda, Lisboa, São Paulo, e Nova York.
-Configuração da OpenWeatherMap API
-1. Configurar a Chave da API
-
-Use a chave fornecida: 41f2ac9d462dee529f4d1ca72279022b.
-Adicione ao arquivo .env:OPENWEATHERMAP_API_KEY=41f2ac9d462dee529f4d1ca72279022b
-
-
-Configure config/services.php:'openweathermap' => [
-    'api_key' => env('OPENWEATHERMAP_API_KEY'),
-],
-
-
-
-2. Instalar Dependências
-composer install
-
-3. Gerar Documentação com Scribe
-php artisan scribe:generate
-
-Acesse em http://localhost:8000/docs.
-4. Testar o Endpoint
-
-Endpoint: GET /api/clima?cidade=NomeDaCidade
-Exemplo: http://localhost:8000/api/clima?cidade=Luanda
-Use Postman ou navegador.
-
-Endpoint de Clima
-GET /api/clima
-
-Descrição: Retorna os dados climáticos atuais para uma cidade.
-Parâmetros:
-cidade (query, obrigatório): Nome da cidade (ex.: Luanda).
-
-
-Exemplo de Requisição (Luanda):GET http://localhost:8000/api/clima?cidade=Luanda
-
-
-Exemplo de Resposta (Sucesso):{
-  "error": false,
-  "dados": {
-    "cidade": "Luanda",
-    "temperatura": 27.2,
-    "umidade": 75,
-    "descricao": "céu limpo"
-  }
+Exemplo de Resposta (Sucesso):
+{
+    "error": false,
+    "dados": {
+        "cidade": "Luanda",
+        "temperatura": 27.2,
+        "umidade": 75,
+        "descricao": "céu limpo"
+    }
 }
 
 
-Exemplo de Resposta (Erro):{
-  "error": true,
-  "mensagem": "Erro da API: city not found",
-  "status_code": 404
+Exemplo de Resposta (Erro):
+{
+    "error": true,
+    "mensagem": "Erro da API: city not found",
+    "status_code": 404
 }
 
 
-################<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>###########
 
-
-Exemplo de Integração
-Deixaei um Html simples exemplificando a a integração (clima.html) foi criada para consultar o clima de cidades como Luanda, Lisboa, São Paulo, e Nova York.
-Como Usar:
-
+Interface de Consulta de Clima
+Uma interface HTML simples (public/clima.html) foi criada para consultar o clima de cidades. O código completo do arquivo é mostrado abaixo:
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -188,23 +241,20 @@ Como Usar:
 </body>
 </html>
 
+Como Usar a Interface
 
-##########################<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>###############################
+Crie um arquivo html e cooque o código acima.
+Abra em seguida e digite o nome de uma cidade (ex.: Luanda) no campo de entrada.
+Clique em "Consultar" para ver os resultados estilizados com Tailwind CSS.
 
+O código está disponível em public/clima.html e utiliza JavaScript com fetch para consumir o endpoint /api/clima.
+Notas Adicionais
 
-Digite uma cidade (ex.: Luanda) e clique em "Consultar".
-Veja os resultados estilizados com Tailwind CSS.
+Chave da API: A chave da OpenWeatherMap API (41f2ac9d462dee529f4d1ca72279022b) é armazenada no arquivo .env para segurança.
+HTTP Client: A API de Clima utiliza a facade Http do Laravel para realizar requisições à OpenWeatherMap API.
+Documentação: A documentação completa de ambos os endpoints está disponível em http://localhost:8000/docs, gerada pelo Scribe.
+Cidades Testadas: Os endpoints foram testados com sucesso para as cidades de Luanda, Lisboa, São Paulo e Nova York.
+Segurança: Certifique-se de não expor a chave da API em repositórios públicos. Para projetos em produção, use uma chave própria.
 
-Código: Consulte public/weather.html.
-
-Notas: por favor observar!
-
-A chave da API é armazenada no .env.
-HTTP Client: Usa a facade Http do Laravel.
-Documentação: Gerada com Scribe, acessível em /docs.
-Cidades Testadas: Luanda, Lisboa, São Paulo, Nova York.
-
-
-
-
-
+Licença
+Este projeto é licenciado sob a MIT License.
