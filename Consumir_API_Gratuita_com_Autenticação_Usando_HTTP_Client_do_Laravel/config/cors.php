@@ -6,7 +6,8 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000'],
+    // Permitindo qualquer origem (inclusive null/file://) — útil para testes locais
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
@@ -16,6 +17,7 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true,
+    // Se não precisa enviar cookies ou headers com credenciais, melhor deixar false
+    'supports_credentials' => false,
 
 ];

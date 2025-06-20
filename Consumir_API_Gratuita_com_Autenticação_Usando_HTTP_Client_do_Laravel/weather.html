@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Consulta de Clima</h1>
+        <div class="mb-4">
+            <input id="cidade" type="text" placeholder="Digite a cidade (ex.: Luanda)"
+                   class="w-full p-2 border rounded-md">
+        </div>
+        <button onclick="consultarClima()"
+                class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+            Consultar
+        </button>
+        <div id="resultado" class="mt-4 text-center"></div>
+    </div>
+
+    <script>
+        async function consultarClima() {
+            const cidade = document.getElementById('cidade').value;
+            const resultado = document.getElementById('resultado');
+
+            if (!cidade) {
+                resultado.innerHTML = '<p class="text-red-500">Por favor, digite uma cidade.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8000/api/clima?cidade=${encodeURIComponent(cidade)}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    resultado.innerHTML = `<p class="text-red-500">Erro: ${data.mensagem}</p>`;
+                    return;
+                }
+
+                const { cidade: nomeCidade, temperatura, umidade, descricao } = data.dados;
+                resultado.innerHTML = `
+                    <p class="text-lg"><strong>Cidade:</strong> ${nomeCidade}</p>
+                    <p><strong>Temperatura:</strong> ${temperatura}°C</p>
+                    <p><strong>Umidade:</strong> ${umidade}%</p>
+                    <p><strong>Condição:</strong> ${descricao}</p>
+                `;
+            } catch (error) {
+                resultado.innerHTML = '<p class="text-red-500">Erro ao consultar o clima: ${error.message}</p>';
+            }
+        }
+    </script>
+</body>
+</html>
